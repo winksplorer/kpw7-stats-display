@@ -11,7 +11,10 @@ var port string = ":42799"
 func main() {
 	http.Handle("/", http.FileServer(http.Dir(frontendDir)))
 	http.HandleFunc("/hostname", hostname)
-	http.HandleFunc("/boottime", bootTime)
+	http.HandleFunc("/boot-time", bootTime)
+	http.HandleFunc("/cpu-usage", cpuUsage)
+	http.HandleFunc("/nvidia-usage", nvidiaUsage)
+	http.HandleFunc("/mem-usage", memUsage)
 	http.HandleFunc("/ping", ping)
 
 	log.Printf("kpw7-stats-display on port %s\n", port)

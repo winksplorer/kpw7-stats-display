@@ -4,7 +4,7 @@ function get(url, token, done) {
     xhr.open('GET', url, true);
     xhr.setRequestHeader('X-Custom-Token', token || 'default'); // send simple string
     xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) done(xhr.responseText);
+        if (xhr.readyState === 4 && xhr.status === 200) done(xhr.responseText.trim());
     };
     xhr.send(null);
 }
@@ -70,11 +70,29 @@ try {
                 });
                 break;
             case 'uptime':
-                get('/boottime', null, function(res) {
+                get('/boot-time', null, function(res) {
                     setInterval(function() {
                         el.innerText = timeSince(Number(res));
                     }, 1000);
                 });
+                break;
+            case 'cpu':
+                get('/cpu-usage', null, function(res) { el.textContent = res + '%'; });
+                setInterval(function() {
+                    get('/cpu-usage', null, function(res) { el.textContent = res + '%'; });
+                }, 3000);
+                break;
+            case 'nvidia':
+                get('/nvidia-usage', null, function(res) { el.textContent = res + '%'; });
+                setInterval(function() {
+                    get('/nvidia-usage', null, function(res) { el.textContent = res + '%'; });
+                }, 3000);
+                break;
+            case 'mem':
+                get('/mem-usage', null, function(res) { el.textContent = res; });
+                setInterval(function() {
+                    get('/mem-usage', null, function(res) { el.textContent = res; });
+                }, 3000);
                 break;
             case 'ping':
                 elementPing(req[1], el)
