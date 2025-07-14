@@ -16,6 +16,7 @@
             h1 {
                 font-size: 2em;
                 text-align: center;
+                margin-top: 0.5em;
                 margin-bottom: -0.2em;
             }
 
@@ -23,7 +24,7 @@
                 margin-bottom: 0.6em;
             }
 
-            .oppoSide {
+            div {
                 overflow: hidden;
                 width: 95%;
                 margin: auto;
@@ -50,37 +51,51 @@
         <h1 id="clock"></h1>
         <p id="err"></p>
         <fieldset>
-            <legend>Basic info</legend>
-            <div class="oppoSide">
+            <legend>System Info</legend>
+            <div>
                 <span class="left">Hostname</span>
                 <span class="right">hostname@</span>
             </div>
             <hr>
-            <div class="oppoSide">
+            <div>
                 <span class="left">Uptime</span>
                 <span class="right">uptime@</span>
             </div>
+            <hr>
+            <div>
+                <span class="left">CPU usage</span>
+                <span class="right">cpu@</span>
+            </div><hr>
+            <div>
+                <span class="left">GPU usage</span>
+                <span class="right">nvidia@</span>
+            </div>
+            <hr>
+            <div>
+                <span class="left">Memory usage</span>
+                <span class="right">mem@</span>
+            </div>
         </fieldset>
         <fieldset>
-            <legend>Ping stats</legend>
-            <div class="oppoSide">
+            <legend>Ping Stats</legend>
+            <div>
                 <span class="left">1.1.1.1</span>
-                <span class="right update">ping@1.1.1.1</span>
+                <span class="right">ping@1.1.1.1@30</span>
             </div>
             <hr>
-            <div class="oppoSide">
+            <div>
                 <span class="left">linkling</span>
-                <span class="right update">ping@192.168.1.174</span>
+                <span class="right">ping@192.168.1.174@5</span>
             </div>
             <hr>
-            <div class="oppoSide">
+            <div>
                 <span class="left">synology</span>
-                <span class="right update">ping@192.168.1.167</span>
+                <span class="right">ping@192.168.1.167@5</span>
             </div>
             <hr>
-            <div class="oppoSide">
+            <div>
                 <span class="left">loud</span>
-                <span class="right update">ping@192.168.1.191</span>
+                <span class="right">ping@192.168.1.191@5</span>
             </div>
         </fieldset>
 
