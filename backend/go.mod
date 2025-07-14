@@ -4,7 +4,6 @@ go 1.24.4
 
 require (
 	github.com/prometheus-community/pro-bing v0.7.0
-	github.com/shirou/gopsutil v3.21.11+incompatible
 	github.com/shirou/gopsutil/v3 v3.24.5
 )
 

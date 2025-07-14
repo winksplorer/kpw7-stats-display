@@ -9,8 +9,8 @@ import (
 	"time"
 
 	probing "github.com/prometheus-community/pro-bing"
-	"github.com/shirou/gopsutil/mem"
 	"github.com/shirou/gopsutil/v3/cpu"
+	"github.com/shirou/gopsutil/v3/mem"
 )
 
 // hostname@
