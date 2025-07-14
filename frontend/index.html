@@ -4,10 +4,68 @@
         <title>kpw7-stats-display</title>
         <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet" type="text/css">
 
-        <meta http-equiv="refresh" content="3">
+        <style>
+            body {
+                font-size: 1.7em;
+                width: 95%;
+                margin: auto;
+            }
+
+            fieldset {
+                margin-bottom: 0.6em;
+            }
+
+            .oppoSide {
+                overflow: hidden;
+                width: 95%;
+                margin: auto;
+                text-align: justify;
+            }
+
+            .left, .right {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            .left {
+                float: left;
+            }
+
+            .right {
+                float: right;
+                font-family: monospace;
+                font-size: 0.6em;
+            }
+        </style>
     </head>
     <body>
-        <h1>Hello, world!</h1>
+        <fieldset>
+            <legend>Basic info</legend>
+            <div class="oppoSide">
+                <span class="left">Hostname</span>
+                <span class="right" data-request="hostname">puter</span>
+            </div>
+            <hr>
+            <div class="oppoSide">
+                <span class="left">Uptime</span>
+                <span class="right" data-request="uptime">12:30:57</span>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Ping stats</legend>
+            <div class="oppoSide">
+                <span class="left">1.1.1.1</span>
+                <span class="right update" data-request="ping@1.1.1.1">100%</span>
+            </div>
+            <hr>
+            <div class="oppoSide">
+                <span class="left">random test ip</span>
+                <span class="right update" data-request="ping@192.168.1.174">66.66%</span>
+            </div>
+        </fieldset>
+
+        <script src="script.js"></script>
     </body>
 </html>

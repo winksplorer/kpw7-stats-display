@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
 	"text/template"
 )
 
@@ -12,6 +13,7 @@ var port string = ":42799"
 
 func main() {
 	http.HandleFunc("/", templater)
+	http.HandleFunc("/ping", ping)
 
 	log.Printf("kpw7-stats-display on port %s\n", port)
 	if err := http.ListenAndServe(":42799", nil); err != nil {
@@ -20,6 +22,12 @@ func main() {
 }
 
 func templater(w http.ResponseWriter, r *http.Request) {
+	// if it's not html don't touch it
+	if !strings.HasSuffix(r.URL.Path, ".html") {
+		http.FileServer(http.Dir(frontendDir)).ServeHTTP(w, r)
+		return
+	}
+
 	// template together base + the page
 	tmpl, err := template.ParseFiles(fmt.Sprintf("%s/index.html", frontendDir))
 	if err != nil {
