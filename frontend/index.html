@@ -13,6 +13,12 @@
                 margin: auto;
             }
 
+            h1 {
+                font-size: 2em;
+                text-align: center;
+                margin-bottom: -0.2em;
+            }
+
             fieldset {
                 margin-bottom: 0.6em;
             }
@@ -41,28 +47,40 @@
         </style>
     </head>
     <body>
+        <h1 id="clock"></h1>
+        <p id="err"></p>
         <fieldset>
             <legend>Basic info</legend>
             <div class="oppoSide">
                 <span class="left">Hostname</span>
-                <span class="right" data-request="hostname">puter</span>
+                <span class="right">hostname@</span>
             </div>
             <hr>
             <div class="oppoSide">
                 <span class="left">Uptime</span>
-                <span class="right" data-request="uptime">12:30:57</span>
+                <span class="right">uptime@</span>
             </div>
         </fieldset>
         <fieldset>
             <legend>Ping stats</legend>
             <div class="oppoSide">
                 <span class="left">1.1.1.1</span>
-                <span class="right update" data-request="ping@1.1.1.1">100%</span>
+                <span class="right update">ping@1.1.1.1</span>
             </div>
             <hr>
             <div class="oppoSide">
-                <span class="left">random test ip</span>
-                <span class="right update" data-request="ping@192.168.1.174">66.66%</span>
+                <span class="left">linkling</span>
+                <span class="right update">ping@192.168.1.174</span>
+            </div>
+            <hr>
+            <div class="oppoSide">
+                <span class="left">synology</span>
+                <span class="right update">ping@192.168.1.167</span>
+            </div>
+            <hr>
+            <div class="oppoSide">
+                <span class="left">loud</span>
+                <span class="right update">ping@192.168.1.191</span>
             </div>
         </fieldset>
 
