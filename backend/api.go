@@ -132,5 +132,5 @@ func ping(w http.ResponseWriter, r *http.Request) {
 	stats := pinger.Statistics() // get send/receive/duplicate/rtt stats
 
 	w.Header().Set("Content-Type", "text/plain")
-	fmt.Fprintln(w, stats.PacketLoss)
+	fmt.Fprintln(w, roundTo(stats.PacketLoss, 2))
 }
