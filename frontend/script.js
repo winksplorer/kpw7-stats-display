@@ -31,7 +31,7 @@ function timeSince(t) {
 // webkit 534 is WEIRD. Date() is UTC-only (on my kindle at least)
 function getLocalTimeString(offsetHours) {
     var d = new Date(Date.now() + 3000); // +3 seconds because kindles are weird (again)
-    var h = (d.getHours() + offsetHours) + 24 % 24;
+    var h = (d.getHours() + offsetHours + 24) % 24;
     var m = d.getMinutes();
     var s = d.getSeconds();
 
