@@ -14,7 +14,12 @@ func main() {
 		frontendDir = "frontend"
 	}
 
-	http.Handle("/", http.FileServer(http.Dir(frontendDir)))
+	// no caching
+	http.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Cache-Control", "no-store, no-cache, must-revalidate")
+		http.FileServer(http.Dir(frontendDir)).ServeHTTP(w, r)
+	}))
+
 	http.HandleFunc("/hostname", hostname)
 	http.HandleFunc("/boot-time", bootTime)
 	http.HandleFunc("/cpu-usage", cpuUsage)

@@ -54,25 +54,28 @@ function elementPing(ip, el) {
     });
 }
 
-// initial value fill & clock
+// main logic
 try {
+    // set up clock
     setInterval(function() {
         document.getElementById('clock').textContent = getLocalTimeString(-7);
     }, 1000)
 
+    // reload every hour
+    setTimeout(function() { location.reload() }, 3600000);
+
+    // value filling
     getByClass('right').forEach(function(el) {
         var req = el.textContent.split('@');
 
         switch(req[0]) {
             case 'hostname':
-                get('/hostname', null, function(res) {
-                    el.textContent = res;
-                });
+                get('/hostname', null, function(res) { el.textContent = res; });
                 break;
             case 'uptime':
                 get('/boot-time', null, function(res) {
                     setInterval(function() {
-                        el.innerText = timeSince(Number(res));
+                        el.textContent = timeSince(Number(res));
                     }, 1000);
                 });
                 break;
