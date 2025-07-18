@@ -61,9 +61,6 @@ try {
         document.getElementById('clock').textContent = getLocalTimeString(-7);
     }, 1000)
 
-    // reload every hour
-    setTimeout(function() { location.reload() }, 3600000);
-
     // value filling
     getByClass('right').forEach(function(el) {
         var req = el.textContent.split('@');
