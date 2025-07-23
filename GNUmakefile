@@ -14,7 +14,7 @@ clean:
 
 backend:
 	@echo "     GO (${GO}) backend -> $(NAME)-server"
-	@cd backend && $(GO) mod tidy && $(GO) build -o ../$(NAME)-server -ldflags="-s -w"
+	@cd backend && $(GO) mod tidy && $(GO) build -buildvcs=false -o ../$(NAME)-server -ldflags="-s -w"
 
 # compress frontend+backend, then embed it into a binary combined with compiled SEA
 sea:
