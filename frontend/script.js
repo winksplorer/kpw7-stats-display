@@ -19,7 +19,7 @@ function getByClass(c) {
 }
 
 function timeSince(t) {
-    var secs = Math.floor((Date.now() + 3000) / 1000) - t; // +3 seconds because kindles are weird
+    var secs = Math.floor((Date.now()) / 1000) - t;
     var h = Math.floor(secs / 3600),
         m = Math.floor((secs % 3600) / 60),
         s = secs % 60;
@@ -30,7 +30,7 @@ function timeSince(t) {
 
 // webkit 534 is WEIRD. Date() is UTC-only (on my kindle at least)
 function getLocalTimeString(offsetHours) {
-    var d = new Date(Date.now() + 3000); // +3 seconds because kindles are weird (again)
+    var d = new Date(Date.now());
     var h = (d.getHours() + offsetHours + 24) % 24;
     var m = d.getMinutes();
     var s = d.getSeconds();
